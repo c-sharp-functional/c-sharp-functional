@@ -40,5 +40,14 @@ namespace CSharp.Functional.Tests
             var result = F.Range(start, end).Last();
             Assert.Equal(end, result);
         }
+
+        [Theory]
+        [InlineData(0, -3)]
+        [InlineData(5, 2)]
+        public void RangeReturnsEmptyEnumerableOnInvalidRanges(int start, int end)
+        {
+            var result = F.Range(start, end).ToList();
+            Assert.Equal(0, result.Count);
+        }
     }
 }
