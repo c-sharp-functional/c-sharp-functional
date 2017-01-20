@@ -42,6 +42,28 @@ namespace CSharp.Functional.Tests
         }
 
         [Theory]
+        [InlineData(-2, 3)]
+        [InlineData(0, 3)]
+        [InlineData(3, 6)]
+        public void RangeReturnsAllIntegersBetweenStartAndEndBothInclusive(int start, int end)
+        {
+            var result = F.Range(start, end).ToList();
+            for (var i = start; i <= end; i++)
+                Assert.True(result.Contains(i));
+        }
+
+        [Theory]
+        [InlineData(-2, 3)]
+        [InlineData(0, 3)]
+        [InlineData(3, 6)]
+        public void RangeReturnsAllIntegersSortedInAscendingOrder(int start, int end)
+        {
+            var result = F.Range(start, end).ToList();
+            for (var i = 0; i < result.Count - 1; i++)
+                Assert.True(result[i] < result[i + 1]);
+        }
+
+        [Theory]
         [InlineData(0, -3)]
         [InlineData(5, 2)]
         public void RangeReturnsEmptyEnumerableOnInvalidRanges(int start, int end)
