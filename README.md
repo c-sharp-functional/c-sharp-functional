@@ -1,9 +1,9 @@
-# farity
+# Farity
 An intuitive functional library for C# programmers
 
 **[Work In Progress]**
 
-## Why?
+## Why Farity?
 
 ## What's different?
 
