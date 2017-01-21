@@ -51,7 +51,7 @@ namespace Farity.Tests
         [InlineData(12U, 2U)]
         public void SubtractSubtractsTwoUints(uint a, uint b)
         {
-            var expected = a - b;
+            var expected = a > b ? a - b : 0;
             var actual = F.Subtract(a, b);
             Assert.Equal(expected, actual);
         }
@@ -61,7 +61,7 @@ namespace Farity.Tests
         [InlineData(11UL, 2UL)]
         public void SubtractSubtractsTwoUlongs(ulong a, ulong b)
         {
-            var expected = a - b;
+            var expected = a > b ? a - b : 0;
             var actual = F.Subtract(a, b);
             Assert.Equal(expected, actual);
         }
@@ -120,29 +120,21 @@ namespace Farity.Tests
         }
 
         [Theory]
-        [InlineData(1U, 2U)]
-        [InlineData(12U, 2U)]
-        public void SubtractSubtractsTwoNullableUints(uint? a, uint? b)
+        [InlineData(1U, 2U, 0U)]
+        [InlineData(12U, 2U, 10U)]
+        public void SubtractSubtractsTwoNullableUints(uint? a, uint? b, uint? expected)
         {
-            var expected = a - b;
             var actual = F.Subtract(a, b);
             Assert.Equal(expected, actual);
-            Assert.Equal(b, F.Subtract(null, b));
-            Assert.Equal(a, F.Subtract(a, null));
-            Assert.Null(F.Subtract((uint?) null, null));
         }
 
         [Theory]
-        [InlineData(1UL, 2UL)]
-        [InlineData(11UL, 2UL)]
-        public void SubtractSubtractsTwoNullableUlongs(ulong? a, ulong? b)
+        [InlineData(1UL, 2UL, 0UL)]
+        [InlineData(11UL, 2UL, 9UL)]
+        public void SubtractSubtractsTwoNullableUlongs(ulong? a, ulong? b, ulong? expected)
         {
-            var expected = a - b;
             var actual = F.Subtract(a, b);
             Assert.Equal(expected, actual);
-            Assert.Equal(b, F.Subtract(null, b));
-            Assert.Equal(a, F.Subtract(a, null));
-            Assert.Null(F.Subtract((double?) null, null));
         }
 
         [Fact]
