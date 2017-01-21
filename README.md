@@ -25,6 +25,7 @@ There is heavy reliance on DOTNET core, make that explicit,
 and explain how to build for different systems.
 
 ## Documentation
+TODO
 
 ## The Name
 We wanted something that starts with an F, and something to do with functions.
@@ -39,3 +40,4 @@ or dotnet test
 
 ## Acknowledgements
 TODO
+inspired by ramda
