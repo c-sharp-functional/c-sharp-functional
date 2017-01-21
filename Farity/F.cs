@@ -1,4 +1,4 @@
-﻿namespace CSharp.Functional
+﻿namespace Farity
 {
     public static partial class F
     {

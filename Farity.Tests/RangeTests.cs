@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace CSharp.Functional.Tests
+namespace Farity.Tests
 {
     public class RangeTests
     {

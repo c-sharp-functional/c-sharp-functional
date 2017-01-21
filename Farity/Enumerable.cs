@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CSharp.Functional
+namespace Farity
 {
     public static partial class F
     {

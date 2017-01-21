@@ -1,4 +1,4 @@
-﻿namespace CSharp.Functional
+﻿namespace Farity
 {
     public class Placeholder
     {
