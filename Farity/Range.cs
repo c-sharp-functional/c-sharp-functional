@@ -6,7 +6,7 @@ namespace Farity
 {
     public static partial class F
     {
-        public static readonly Func<int, int, IEnumerable<int>> Range =
-            (start, end) => start > end ? Enumerable.Empty<int>() : Enumerable.Range(start, end - start + 1);
+        public static IEnumerable<int> Range(int start, int end)
+            => start > end ? Enumerable.Empty<int>() : Enumerable.Range(start, end - start + 1);
     }
 }
