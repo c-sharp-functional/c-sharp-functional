@@ -16,6 +16,7 @@ TODO:
 TODO:
 
 * Pure functions
+* More extensibility and deferred execution using LINQ (of course)
 * Function composition and higher order functions are encouraged
 * Type safety not lost to dynamic functions
 * Convenient to curry or partially apply
