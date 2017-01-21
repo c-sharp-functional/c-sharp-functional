@@ -1,0 +1,29 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#
+	var types = new [] {
+			"decimal",
+			"double",
+			"float",
+			"int",
+			"long",
+			"uint",
+			"ulong",
+			"TimeSpan"
+		};
+#>
+using System;
+
+namespace Farity
+{
+	public static partial class F
+	{
+<# for(var i = 0; i< types.Length; i++)
+{
+		var type = types[i]; #>
+		public static <#= type #> Add(<#= type #> a, <#= type #> b) => a + b;
+<# } #>
+	}
+}
