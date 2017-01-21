@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace Farity.Tests
 {
@@ -80,6 +81,16 @@ namespace Farity.Tests
         [InlineData(11U, 2U)]
         public void AddSumsTwoUshorts(ushort a, ushort b)
         {
+            var expected = a + b;
+            var actual = F.Add(a, b);
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void AddSumsTwoTimeSpans()
+        {
+            var a = TimeSpan.FromMilliseconds(22);
+            var b = TimeSpan.FromMinutes(2);
             var expected = a + b;
             var actual = F.Add(a, b);
             Assert.Equal(expected, actual);
