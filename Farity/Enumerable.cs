@@ -6,9 +6,6 @@ namespace Farity
 {
     public static partial class F
     {
-        public static IEnumerable<int> Range(int start, int end)
-            => start > end ? Enumerable.Empty<int>() : Enumerable.Range(start, end - start + 1);
-
         public static IList<T> ToList<T>(IEnumerable<T> source) => source.ToList();
 
         public static IEnumerable<T> Reverse<T>(IEnumerable<T> source) => source.Reverse();
