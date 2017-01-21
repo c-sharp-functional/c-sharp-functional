@@ -17,7 +17,7 @@ TODO:
 should feel intuitive, practical, functional. should not fight C#.
 
 ## Installation
-There are not yet any packages available for installation yet.
+There aren't any packages available for installation yet.
 
 ## Build
 TODO:
