@@ -1,5 +1,5 @@
 # farity
-Intuitive functional C#
+An intuitive functional library for C# programmers
 
 **[Work In Progress]**
 
