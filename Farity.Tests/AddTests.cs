@@ -76,16 +76,6 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Theory]
-        [InlineData(1U, 2U)]
-        [InlineData(11U, 2U)]
-        public void AddSumsTwoUshorts(ushort a, ushort b)
-        {
-            var expected = a + b;
-            var actual = F.Add(a, b);
-            Assert.Equal(expected, actual);
-        }
-
         [Fact]
         public void AddSumsTwoTimeSpans()
         {
