@@ -2,6 +2,6 @@
 {
     public static partial class F
     {
-        public static readonly FuncAny<bool> True = args => true;
+        public static bool True(params object[] args) => true;
     }
 }
