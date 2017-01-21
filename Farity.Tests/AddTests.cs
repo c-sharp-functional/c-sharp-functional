@@ -5,16 +5,6 @@ namespace Farity.Tests
 {
     public class AddTests
     {
-        [Fact]
-        public void AddSumsTwoDecimals()
-        {
-            var a = 2.33m;
-            var b = 1.99m;
-            var expected = a + b;
-            var actual = F.Add(a, b);
-            Assert.Equal(expected, actual);
-        }
-
         [Theory]
         [InlineData(1.22d, 2.11d)]
         [InlineData(-1.22d, 2.11d)]
@@ -76,29 +66,6 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
-        public void AddSumsTwoTimeSpans()
-        {
-            var a = TimeSpan.FromMilliseconds(22);
-            var b = TimeSpan.FromMinutes(2);
-            var expected = a + b;
-            var actual = F.Add(a, b);
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void AddSumsTwoNullableDecimals()
-        {
-            var a = (decimal?) 2.33m;
-            var b = (decimal?) 1.99m;
-            var expected = a + b;
-            var actual = F.Add(a, b);
-            Assert.Equal(expected, actual);
-            Assert.Equal(b, F.Add(null, b));
-            Assert.Equal(a, F.Add(a, null));
-            Assert.Null(F.Add((decimal?) null, null));
-        }
-
         [Theory]
         [InlineData(1.22d, 2.11d)]
         [InlineData(-1.22d, 2.11d)]
@@ -123,7 +90,7 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
             Assert.Equal(b, F.Add(null, b));
             Assert.Equal(a, F.Add(a, null));
-            Assert.Null(F.Add((float?)null, null));
+            Assert.Null(F.Add((float?) null, null));
         }
 
         [Theory]
@@ -136,7 +103,7 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
             Assert.Equal(b, F.Add(null, b));
             Assert.Equal(a, F.Add(a, null));
-            Assert.Null(F.Add((int?)null, null));
+            Assert.Null(F.Add((int?) null, null));
         }
 
         [Theory]
@@ -149,7 +116,7 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
             Assert.Equal(b, F.Add(null, b));
             Assert.Equal(a, F.Add(a, null));
-            Assert.Null(F.Add((long?)null, null));
+            Assert.Null(F.Add((long?) null, null));
         }
 
         [Theory]
@@ -162,7 +129,7 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
             Assert.Equal(b, F.Add(null, b));
             Assert.Equal(a, F.Add(a, null));
-            Assert.Null(F.Add((uint?)null, null));
+            Assert.Null(F.Add((uint?) null, null));
         }
 
         [Theory]
@@ -175,7 +142,30 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
             Assert.Equal(b, F.Add(null, b));
             Assert.Equal(a, F.Add(a, null));
-            Assert.Null(F.Add((double?)null, null));
+            Assert.Null(F.Add((double?) null, null));
+        }
+
+        [Fact]
+        public void AddSumsTwoDecimals()
+        {
+            var a = 2.33m;
+            var b = 1.99m;
+            var expected = a + b;
+            var actual = F.Add(a, b);
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void AddSumsTwoNullableDecimals()
+        {
+            var a = (decimal?) 2.33m;
+            var b = (decimal?) 1.99m;
+            var expected = a + b;
+            var actual = F.Add(a, b);
+            Assert.Equal(expected, actual);
+            Assert.Equal(b, F.Add(null, b));
+            Assert.Equal(a, F.Add(a, null));
+            Assert.Null(F.Add((decimal?) null, null));
         }
 
         [Fact]
@@ -188,7 +178,17 @@ namespace Farity.Tests
             Assert.Equal(expected, actual);
             Assert.Equal(b, F.Add(null, b));
             Assert.Equal(a, F.Add(a, null));
-            Assert.Null(F.Add((TimeSpan?)null, null));
+            Assert.Null(F.Add((TimeSpan?) null, null));
+        }
+
+        [Fact]
+        public void AddSumsTwoTimeSpans()
+        {
+            var a = TimeSpan.FromMilliseconds(22);
+            var b = TimeSpan.FromMinutes(2);
+            var expected = a + b;
+            var actual = F.Add(a, b);
+            Assert.Equal(expected, actual);
         }
     }
 }
