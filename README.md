@@ -5,11 +5,16 @@ An intuitive functional library for C# programmers
 
 ## Why Farity?
 
-TODO:
-
-* specifically for functional programming,
-* immutability
-* and whatnot.
+There are already several excellent libraries for C# which allow the use of the functional prardigm.
+Typically, they are written in a way that enables programmers from other languages like Haskell and F#
+quickly get to working in a familiar syntax, etc., inside C#, trying to fix several "problems" C# poses
+towards a functional approach. The few libraries that stick to being true to functional style without
+outright fighting what C# offers, often try to mimic the syntax in other functional languages, thereby
+introducing quirks like dynamic functions that change behavior depending upon the number of arguments supplied,
+causing us to lose several advantages that C# offers from the ground-up, starting with static type checking.
+Farity has a more focused goal. We wanted a library designed specifically for a functional programming style,
+one that makes it easy to create functional pipelines, one that never mutates user data, but one that still
+feels like writing C#.
 
 ## What's different?
 
