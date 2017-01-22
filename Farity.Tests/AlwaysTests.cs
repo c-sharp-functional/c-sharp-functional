@@ -4,16 +4,22 @@ namespace Farity.Tests
 {
     public class AlwaysTests
     {
-        [Fact]
-        public void AlwaysReturnsAFunctionThatReturnsTheSameValueAlways()
+        [Theory]
+        [InlineData()]
+        [InlineData(1)]
+        [InlineData(null, null)]
+        [InlineData(null, null, "string")]
+        [InlineData(null, null, "string", 3)]
+        [InlineData(null, null, "string", 3, 7)]
+        [InlineData(null, null, "string", 3, 7, 9U)]
+        [InlineData(null, null, "string", 3, 7, 9U, 7L)]
+        [InlineData(null, null, "string", 3, 7, 9U, 7L, 9UL)]
+        public void AlwaysReturnsAFunctionThatReturnsTheSameValueAlways(params object[] args)
         {
             const int expected = 42;
             var answerToLifeUniverseAndEverything = F.Always(expected);
-            Assert.Equal(expected, answerToLifeUniverseAndEverything());
-            Assert.Equal(expected, answerToLifeUniverseAndEverything(1));
-            Assert.Equal(expected, answerToLifeUniverseAndEverything("string", null));
-            Assert.Equal(expected, answerToLifeUniverseAndEverything(null, "str", 3));
-            Assert.Equal(expected, answerToLifeUniverseAndEverything(null, null, null, null));
+            var actual = answerToLifeUniverseAndEverything(args);
+            Assert.Equal(expected, actual);
         }
     }
 }
