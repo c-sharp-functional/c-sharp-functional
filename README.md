@@ -21,10 +21,15 @@ These points make it very easy to build functions as a sequence of simpler funct
 
 ## Philosophy
 
-TODO:
+Using Farity should feel much like just using C#. It is intuitive, practical, functional C#. We're not re-introducing Tuples, we're not borrowing consed lists, we're not porting over all of the Clojure or Haskell or F# functions.
 
-* should feel intuitive, practical, functional.
-* should not fight C#.
+Our basic data structures are POCOs, and our usual collections are IEnumerables (usually Lists). We also keep other native features of C#, such as static type checking and conventions for naming functions.
+
+Functional programming is in good part about immutable objects and side-effect free functions. While Farity does not _enforce_ this, it enables such style to be as frictionless as possible.
+
+We aim for an implementation both clean and elegant, but the API is king. We sacrifice a great deal of implementation elegance for even a slightly cleaner API.
+
+Last but not least, Farity strives for performance. A reliable and quick implementation wins over any notions of functional purity.
 
 ## Installation
 
