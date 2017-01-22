@@ -5,26 +5,19 @@ An intuitive functional library for C# programmers
 
 ## Why Farity?
 
-There are already several excellent libraries for C# which allow the use of the functional prardigm.
-Typically, they are written in a way that enables programmers from other languages like Haskell and F#
-quickly get to working in a familiar syntax, etc., inside C#, trying to fix several "problems" C# poses
-towards a functional approach. The few libraries that stick to being true to functional style without
-outright fighting what C# offers, often try to mimic the syntax in other functional languages, thereby
-introducing quirks like dynamic functions that change behavior depending upon the number of arguments supplied,
-causing us to lose several advantages that C# offers from the ground-up, starting with static type checking.
-Farity has a more focused goal. We wanted a library designed specifically for a functional programming style,
-one that makes it easy to create functional pipelines, one that never mutates user data, but one that still
-feels like writing C#.
+There are already several excellent libraries for C# which allow the use of the functional prardigm. Typically, they are written in a way that enables programmers from other languages like Haskell and F# quickly get to working in a familiar syntax, etc., inside C#, trying to fix several "problems" C# poses towards a functional approach. The few libraries that stick to being true to functional style without outright fighting what C# offers, often try to mimic the syntax in other functional languages, thereby introducing quirks like dynamic functions that change behavior depending upon the number of arguments supplied, causing us to lose several advantages that C# offers from the ground-up, starting with static type checking. Farity has a more focused goal. We wanted a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data, but one that still feels like writing C#.
 
 ## What's different?
 
-TODO:
+The primary distinguising features of Farity are:
 
-* Pure functions
-* More extensibility and deferred execution using LINQ (of course)
-* Function composition and higher order functions are encouraged
-* Type safety not lost to dynamic functions
-* Convenient to curry or partially apply
+* Farity emphasizes a purer functional style. Immutability and side-effect free functions are at the heart of its design philosophy. This can help you get the job done with simple, elegant code.
+* Farity functions that operate on lists or sets always use the `IEnumerable<T>` type and the deferred execution that comes with it (very much like LINQ). This can help you get started with functional programming without a steep learning curve. The type system is very familiar and works as expected.
+* Farity encourages the use of function composition and higher-order functions in order to write complex logic with robust functions that can easily be tested. Breaking down complex logic will feel more natural after solving a few problems in this style, and will also help with thinking about problems in other paradigms.
+* Farity works with C# and its types (well, mostly) and doesn't fight the system. This means there are no dynamic methods, and everything you write is easy to understand, validate, and determine. There is no magiv under the hood that feels strange.
+* The parameters to Farity functions are arranged to make it convenient for currying and/or partial application. This also encourages constructing new functions from old ones by supplying only a few of the parameters. The data to be operated on is generally supplied last.
+
+These points make it very easy to build functions as a sequence of simpler functions, each of which transforms the data and passes it along to the next, while having all static type checking. Farity is designed to support this style of coding.
 
 ## Philosophy
 
