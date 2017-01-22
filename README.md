@@ -17,7 +17,7 @@ The primary distinguising features of Farity are:
 * Farity works with C# and its types (well, mostly) and doesn't fight the system. This means there are no dynamic methods, and everything you write is easy to understand, validate, and determine. There is no magiv under the hood that feels strange.
 * The parameters to Farity functions are arranged to make it convenient for currying and/or partial application. This also encourages constructing new functions from old ones by supplying only a few of the parameters. The data to be operated on is generally supplied last.
 
-These points make it very easy to build functions as a sequence of simpler functions, each of which transforms the data and passes it along to the next, while having all static type checking. Farity is designed to support this style of coding.
+These points make it very easy to build functions as a sequence of simpler functions, each of which transforms the data and passes it along to the next, all the while retaining static type checking. Farity is designed to support this style of coding.
 
 ## Philosophy
 
