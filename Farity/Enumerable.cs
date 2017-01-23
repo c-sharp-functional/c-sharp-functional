@@ -16,20 +16,6 @@ namespace Farity
 
         public static IEnumerable<T> Unique<T>(IEnumerable<T> source) => source.Distinct();
 
-        public static IEnumerable<T> SkipUntil<T>(int index, IEnumerable<T> source)
-        {
-            if (!(source is IReadOnlyList<T>))
-            {
-                var i = 0;
-                foreach (var item in source)
-                    if (index >= i++) yield return item;
-            }
-            var list = (IReadOnlyList<T>) source;
-            if (list.Count <= index) yield break;
-            for (var i = index; i < list.Count; i++)
-                yield return list[i];
-        }
-
         public static IEnumerable<T> Filter<T>(Func<T, bool> predicate, IEnumerable<T> source)
             => source.Where(predicate);
 
