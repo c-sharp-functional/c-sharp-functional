@@ -6,8 +6,6 @@ namespace Farity
 {
     public static partial class F
     {
-        public static IList<T> ToList<T>(IEnumerable<T> source) => source.ToList();
-
         public static IEnumerable<T> Reverse<T>(IEnumerable<T> source) => source.Reverse();
 
         public static IEnumerable<T> Drop<T>(int count, IEnumerable<T> source) => source.Skip(count);
@@ -27,6 +25,7 @@ namespace Farity
                     if (index >= i++) yield return item;
             }
             var list = (IReadOnlyList<T>) source;
+            if (list.Count <= index) yield break;
             for (var i = index; i < list.Count; i++)
                 yield return list[i];
         }
