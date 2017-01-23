@@ -7,6 +7,7 @@
         /// </summary>
         /// <param name="args">Any arguments passed to the function.</param>
         /// <returns>false</returns>
+        /// <remarks>Category: Function</remarks>
         public static bool False(params object[] args) => false;
     }
 }
