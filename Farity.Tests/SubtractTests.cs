@@ -159,28 +159,5 @@ namespace Farity.Tests
             Assert.Equal(a, F.Subtract(a, null));
             Assert.Null(F.Subtract((decimal?) null, null));
         }
-
-        [Fact]
-        public void SubtractSubtractsTwoNullableTimeSpans()
-        {
-            var a = TimeSpan.FromMilliseconds(22);
-            var b = TimeSpan.FromMinutes(2);
-            var expected = a - b;
-            var actual = F.Subtract(a, b);
-            Assert.Equal(expected, actual);
-            Assert.Equal(-b, F.Subtract(null, b));
-            Assert.Equal(a, F.Subtract(a, null));
-            Assert.Null(F.Subtract((TimeSpan?) null, null));
-        }
-
-        [Fact]
-        public void SubtractSubtractsTwoTimeSpans()
-        {
-            var a = TimeSpan.FromMilliseconds(22);
-            var b = TimeSpan.FromMinutes(2);
-            var expected = a - b;
-            var actual = F.Subtract(a, b);
-            Assert.Equal(expected, actual);
-        }
     }
 }
