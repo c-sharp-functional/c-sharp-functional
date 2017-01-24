@@ -11,7 +11,6 @@ namespace Farity
         public static long Add(long a, long b) => a + b;
         public static uint Add(uint a, uint b) => a + b;
         public static ulong Add(ulong a, ulong b) => a + b;
-        public static TimeSpan Add(TimeSpan a, TimeSpan b) => a + b;
 
         public static decimal? Add(decimal? a, decimal? b)
             => a == null && b == null ? (decimal?) null : Add(a ?? 0, b ?? 0);
@@ -33,8 +32,5 @@ namespace Farity
 
         public static ulong? Add(ulong? a, ulong? b)
             => a == null && b == null ? (ulong?) null : Add(a ?? 0, b ?? 0);
-
-        public static TimeSpan? Add(TimeSpan? a, TimeSpan? b)
-            => a == null && b == null ? (TimeSpan?) null : Add(a ?? TimeSpan.Zero, b ?? TimeSpan.Zero);
     }
 }

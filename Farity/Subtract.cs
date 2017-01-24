@@ -11,7 +11,6 @@ namespace Farity
         public static long Subtract(long a, long b) => a - b;
         public static uint Subtract(uint a, uint b) => b > a ? 0 : a - b;
         public static ulong Subtract(ulong a, ulong b) => b > a ? 0 : a - b;
-        public static TimeSpan Subtract(TimeSpan a, TimeSpan b) => a - b;
 
         public static decimal? Subtract(decimal? a, decimal? b)
             => a == null && b == null ? (decimal?) null : Subtract(a ?? 0, b ?? 0);
@@ -33,8 +32,5 @@ namespace Farity
 
         public static ulong? Subtract(ulong? a, ulong? b)
             => a == null && b == null ? (ulong?) null : Subtract(a ?? 0, b ?? 0);
-
-        public static TimeSpan? Subtract(TimeSpan? a, TimeSpan? b)
-            => a == null && b == null ? (TimeSpan?) null : Subtract(a ?? TimeSpan.Zero, b ?? TimeSpan.Zero);
     }
 }
