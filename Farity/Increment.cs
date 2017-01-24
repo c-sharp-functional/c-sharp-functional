@@ -4,12 +4,12 @@ namespace Farity
 {
     public static partial class F
     {
-        public static T Add<T>(T a, T b)
+        public static T Increment<T>(T value)
             where T : struct,
             IComparable,
             IComparable<T>,
             IConvertible,
             IEquatable<T>,
-            IFormattable => a;
+            IFormattable => Add((T) (object) 1, value);
     }
 }
