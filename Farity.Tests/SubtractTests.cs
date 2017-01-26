@@ -30,7 +30,7 @@ namespace Farity.Tests
         [InlineData(12U, 2U)]
         public void SubtractSubtractsTwoUints(uint a, uint b)
         {
-            var expected = a > b ? a - b : 0;
+            var expected = a - b;
             var actual = F.Subtract(a, b);
             Assert.Equal(expected, actual);
         }
@@ -40,7 +40,7 @@ namespace Farity.Tests
         [InlineData(11UL, 2UL)]
         public void SubtractSubtractsTwoUlongs(ulong a, ulong b)
         {
-            var expected = a > b ? a - b : 0;
+            var expected = a - b;
             var actual = F.Subtract(a, b);
             Assert.Equal(expected, actual);
         }
