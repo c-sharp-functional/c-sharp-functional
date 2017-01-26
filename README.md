@@ -62,6 +62,8 @@ TODO:
 
 ## Acknowledgements
 
+The source code for generic operators is based on the wonderful [MiscUtil library](http://www.yoda.arachsys.com/csharp/miscutil/).
+
 TODO:
 
 * inspired by ramda
