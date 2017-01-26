@@ -11,6 +11,6 @@ namespace Farity
             IComparable<T>,
             IConvertible,
             IEquatable<T>,
-            IFormattable => (T) (object) Expression.Negate((Expression) (object) n);
+            IFormattable => Operator<T>.Negate(n);
     }
 }
