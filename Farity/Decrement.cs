@@ -10,6 +10,6 @@ namespace Farity
             IComparable<T>,
             IConvertible,
             IEquatable<T>,
-            IFormattable => Subtract(value, (T) (object) -1);
+            IFormattable => Subtract(value, (T) Convert.ChangeType(1, typeof(T)));
     }
 }
