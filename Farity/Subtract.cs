@@ -10,6 +10,6 @@ namespace Farity
             IComparable<T>,
             IConvertible,
             IEquatable<T>,
-            IFormattable => Add(a, Negate(b));
+            IFormattable => Operator<T>.Subtract(a, b);
     }
 }
