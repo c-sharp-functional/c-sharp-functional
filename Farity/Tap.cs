@@ -17,6 +17,6 @@ namespace Farity
         {
             function(value);
             return value;
-        }        
+        }
     }
 }
