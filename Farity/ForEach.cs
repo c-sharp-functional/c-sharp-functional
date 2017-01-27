@@ -16,11 +16,8 @@ namespace Farity
         /// <remarks>Category: List</remarks>
         public static IEnumerable<T> ForEach<T>(Action<T> function, IEnumerable<T> source)
         {
-            foreach (var item in source)
-            {
-                function(item);
-                yield return item;
-            }
+            var tap = Partial<Action<T>, T, T>(Tap, function);
+            foreach (var item in source) yield return tap(item);
         }
     }
 }
