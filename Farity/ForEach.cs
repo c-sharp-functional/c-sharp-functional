@@ -17,7 +17,7 @@ namespace Farity
         public static IEnumerable<T> ForEach<T>(Action<T> function, IEnumerable<T> source)
         {
             var tap = Partial<Action<T>, T, T>(Tap, function);
-            foreach (var item in source) yield return tap(item);
+            return Map(tap, source);
         }
     }
 }
