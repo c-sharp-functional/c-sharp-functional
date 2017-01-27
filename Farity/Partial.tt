@@ -2,6 +2,7 @@
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
 <#
 
 var args = "abcdefghij";
@@ -38,6 +39,18 @@ string GetArgs(int start, int end)
 {
 	return string.Join(", ", Enumerable.Range(start, end-start+1).Select(GetArg));
 }
+
+string PrintFunctionsForArity(int i)
+{
+	var sb = new StringBuilder();
+	sb.AppendLine($"\t\t#region Arity {i}");
+	sb.AppendLine($"\t\tpublic static Func<{GetTsWithTResult(2, i)}> Partial<{GetTsWithTResult(1, i)}>({GetFuncWithArgs(1, i)} function, T1 a)");
+    sb.AppendLine("\t\t{");
+	sb.AppendLine($"\t\t\treturn ({GetArgs(1, i-1)}) => function({GetArgs(0, i-1)});");
+    sb.AppendLine("\t\t}");
+	sb.AppendLine("\t\t#endregion");
+	return sb.ToString();
+}
 #>
 using System;
 
@@ -49,13 +62,7 @@ namespace Farity
 for(int i = 2; i < 11; i++)
 {
 #>
-		#region Arity <#= i #>
-		public static Func<<#= GetTsWithTResult(2, i) #>> Partial<<#= GetTsWithTResult(1, i) #>>(<#= GetFuncWithArgs(1, i) #> function,
-            T1 a)
-        {
-            return (<#= GetArgs(1, i-1) #>) => function(<#= GetArgs(0, i-1) #>);
-        }
-		#endregion
+<#= PrintFunctionsForArity(i) #>
 <#
 }
 #>
