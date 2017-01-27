@@ -9,8 +9,7 @@ namespace Farity.Tests
         public void MapExecutesFunctionsForAllElementsInTheList()
         {
             var expected = new[] {"1", "2", "3", "4", "5"};
-            var source = new[] { 1, 2, 3, 4, 5 };
-            var actual = F.Map(x => x.ToString(), source);
+            var actual = F.Map(x => x.ToString(), new[] { 1, 2, 3, 4, 5 });
             Assert.Equal(expected, actual);
         }
     }
