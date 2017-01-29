@@ -2,6 +2,7 @@
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
+<#@ import namespace="System" #>
 <#@ import namespace="System.Text" #>
 <#
 
@@ -12,47 +13,86 @@ string T(int i)
 	return "T"+i;
 }
 
-string GetTs(int start, int end)
+string GetTs(string pattern)
 {
-	return string.Join(", ", Enumerable.Range(start,end-start+1).Select(T));
+	return string.Join(", ", pattern.Select((c, i) => c == '0' ? T(i+1) : "").Where(x => !string.IsNullOrWhiteSpace(x)));
 }
 
-string GetTsWithTResult(int start, int end)
+string GetAllTs(string pattern)
 {
-	return GetTs(start, end) + ", TResult";
+	return string.Join(", ", Enumerable.Range(1, pattern.Length).Select(T));
 }
 
-string GetFuncWithArgs(int start, int end)
+string GetTsWithResult(string pattern)
 {
-	var func = "Func<";
-	func += GetTsWithTResult(start, end);
-	func += ">";
-	return func;
+	return GetTs(pattern) + ", TResult";
 }
 
-string GetArg(int n)
+string GetAllTsWithResult(string pattern)
 {
-	return args[n].ToString();
+	return GetAllTs(pattern) + ", TResult";
 }
 
-string GetArgs(int start, int end)
+string GetArgumentNames(string pattern)
 {
-	return string.Join(", ", Enumerable.Range(start, end-start+1).Select(GetArg));
+	return
+		string.Join(", ",
+			pattern.Select((c, i) => c == '0' ? args[i].ToString() : "").Where(x => !string.IsNullOrWhiteSpace(x)));
+}
+
+string GetAllArgumentNames(string pattern)
+{
+	return string.Join(", ", args.Substring(0, pattern.Length).AsEnumerable());
+}
+
+IEnumerable<string> GetCleanPartialArgs(IEnumerable<string> partialArgs)
+{
+	return partialArgs.Reverse().SkipWhile(p => p.StartsWith("P")).Reverse();
+}
+
+string GetPartialArgs(string pattern)
+{
+	var partialArgs =
+		pattern
+			.Select((c, i) =>
+				c == '1'
+					?  $"{T(i+1)} {args[i]}"
+					: $"P p{args[i].ToString().ToUpperInvariant()}")
+			.Where(x => !string.IsNullOrWhiteSpace(x));
+	return string.Join(", ", GetCleanPartialArgs(partialArgs));
+}
+
+IEnumerable<string> GetPatterns(string s, int digitsLeft, List<string> list = null)
+{
+	list = list ?? new List<string>();
+	return digitsLeft == 0
+		? list.Concat(new[] {s})
+		: GetPatterns(s + "0", digitsLeft - 1, list).Concat(GetPatterns(s + "1", digitsLeft - 1, list));
 }
 
 string PrintFunctionsForArity(int i)
 {
 	var sb = new StringBuilder();
 	sb.AppendLine($"\t\t#region Arity {i}");
-	sb.AppendLine($"\t\tpublic static Func<{GetTsWithTResult(2, i)}> Partial<{GetTsWithTResult(1, i)}>({GetFuncWithArgs(1, i)} function, T1 a)");
-    sb.AppendLine("\t\t{");
-	sb.AppendLine($"\t\t\treturn ({GetArgs(1, i-1)}) => function({GetArgs(0, i-1)});");
-    sb.AppendLine("\t\t}");
+	var allZeroes = new String(new char[i]).Replace('\0', '0');
+	var allOnes = new String(new char[i]).Replace('\0', '1');
+	var patterns = GetPatterns("", i).Except(new[] {allZeroes, allOnes});
+	foreach(var pattern in patterns)
+	{
+		var allTs = GetAllTsWithResult(pattern);
+		sb.AppendLine($"\t\tpublic static");
+		sb.AppendLine($"\t\t\tFunc<{GetTsWithResult(pattern)}>");
+		sb.AppendLine($"\t\t\tPartial<{allTs}>(");
+		sb.AppendLine($"\t\t\t\tFunc<{allTs}> function,");
+		sb.AppendLine($"\t\t\t\t{GetPartialArgs(pattern)})");
+		sb.AppendLine($"\t\t=> ({GetArgumentNames(pattern)}) => function({GetAllArgumentNames(pattern)});");
+	}
 	sb.AppendLine("\t\t#endregion");
 	return sb.ToString();
 }
 #>
 using System;
+using P = Farity.Placeholder;
 
 namespace Farity
 {
