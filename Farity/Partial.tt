@@ -74,6 +74,7 @@ string PrintFunctionsForArity(int i)
 {
 	var sb = new StringBuilder();
 	sb.AppendLine($"\t\t#region Arity {i}");
+	sb.AppendLine();
 	var allZeroes = new String(new char[i]).Replace('\0', '0');
 	var allOnes = new String(new char[i]).Replace('\0', '1');
 	var patterns = GetPatterns("", i).Except(new[] {allZeroes, allOnes});
@@ -86,6 +87,7 @@ string PrintFunctionsForArity(int i)
 		sb.AppendLine($"\t\t\t\tFunc<{allTs}> function,");
 		sb.AppendLine($"\t\t\t\t{GetPartialArgs(pattern)})");
 		sb.AppendLine($"\t\t=> ({GetArgumentNames(pattern)}) => function({GetAllArgumentNames(pattern)});");
+		sb.AppendLine();
 	}
 	sb.AppendLine("\t\t#endregion");
 	return sb.ToString();
