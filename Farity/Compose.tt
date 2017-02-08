@@ -1,0 +1,80 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Text" #>
+<#
+
+var args = "abcdefghij";
+
+string T(int i)
+{
+	return "T"+i;
+}
+
+string GetTs(int n)
+{
+	return string.Join(", ", Enumerable.Range(1, n).Select(T));
+}
+
+string GetTsWithResult(int n)
+{
+	return GetTs(n) + ", TResult";
+}
+
+string GetArgs(int n)
+{
+    return string.Join(", ", args.Take(n));
+}
+
+string GetUnaryFuncString(int n)
+{
+    return $"Func<{T(n)}, {T(n+1)}>";
+}
+
+string PrintFunctionsForArity(int i)
+{
+	var sb = new StringBuilder();
+	sb.AppendLine($"\t\t#region Arity {i}");
+	sb.AppendLine();
+	for(var j = 1; j < 11; j++)
+	{
+		sb.AppendLine($"\t\tpublic static");
+		sb.AppendLine($"\t\t\tFunc<{GetTsWithResult(i)}>");
+		sb.AppendLine($"\t\t\tCompose<{GetTsWithResult(i+j)}>(");
+        sb.AppendLine($"\t\t\t\tFunc<{T(i+j)}, TResult> function{j},");
+        var count = j-1;
+        for(var k = i+j-1; k > i; k--)
+		    sb.AppendLine($"\t\t\t\t{GetUnaryFuncString(k)} function{count--},");
+        sb.AppendLine($"\t\t\t\tFunc<{GetTs(i+1)}> function)");
+		sb.AppendLine($"\t\t=> ({GetArgs(i)}) => ");
+		sb.Append($"\t\t\t");
+        for(var k = j; k > 0; k--)
+            sb.Append($"function{k}(");
+        sb.Append($"function({GetArgs(i)})");
+        for(var k = j; k > 0; k--)
+		    sb.Append(")");
+        sb.AppendLine(";");
+		sb.AppendLine();
+	}
+	sb.AppendLine("\t\t#endregion");
+	return sb.ToString();
+}
+#>
+using System;
+
+namespace Farity
+{
+	public static partial class F
+	{
+<#  
+for(int i = 1; i < 11; i++)
+{
+#>
+<#= PrintFunctionsForArity(i) #>
+<#
+}
+#>
+	}
+}

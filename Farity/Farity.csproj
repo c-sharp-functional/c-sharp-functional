@@ -8,6 +8,10 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Compose.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Compose.cs</LastGenOutput>
+    </None>
     <None Include="Partial.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Partial.cs</LastGenOutput>
@@ -20,6 +24,11 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Compose.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Compose.tt</DependentUpon>
+    </Compile>
     <Compile Update="Partial.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
