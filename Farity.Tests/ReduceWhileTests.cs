@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System;
 using Xunit;
 
 namespace Farity.Tests
@@ -9,7 +9,7 @@ namespace Farity.Tests
         public void ReduceWhileExecutesFunctionsForAllElementsInTheList()
         {
             var expected = 15;
-            var actual = F.ReduceWhile((r,c) => F.True(r,c), (r, c) => r + c, 0, new[] { 1, 2, 3, 4, 5 });
+            var actual = F.ReduceWhile(F.True, (r, c) => r + c, 0, new[] { 1, 2, 3, 4, 5 });
             Assert.Equal(expected, actual);
         }
 
