@@ -26,6 +26,6 @@ namespace Farity
         /// <param name="source">The source of elements to filter.</param>
         /// <returns>An enumerable with the elements filtered with the predicate.</returns>
         public static IEnumerable<T> Filter<T>(FuncAny<bool> predicate, IEnumerable<T> source)
-            => source.Where(item => predicate(item));
+            => Filter((T item) => predicate(item), source);
     }
 }
