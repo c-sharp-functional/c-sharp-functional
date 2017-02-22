@@ -16,9 +16,6 @@ namespace Farity
 
         public static IEnumerable<T> Unique<T>(IEnumerable<T> source) => source.Distinct();
 
-        public static IEnumerable<T> Filter<T>(Func<T, bool> predicate, IEnumerable<T> source)
-            => source.Where(predicate);
-
         public static IEnumerable<T> DefaultTo<T>(T value, IEnumerable<T> source) => source.DefaultIfEmpty(value);
 
         public static T First<T>(IEnumerable<T> source) => source.First();
