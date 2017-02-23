@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Farity
 {
     public static partial class F
     {
-        public static IEnumerable<T> Reverse<T>(IEnumerable<T> source) => source.Reverse();
-
         public static IEnumerable<T> Drop<T>(int count, IEnumerable<T> source) => source.Skip(count);
 
         public static IEnumerable<T> Take<T>(int count, IEnumerable<T> source) => source.Take(count);
