@@ -12,7 +12,6 @@ namespace Farity
         /// <param name="count">The count of elements to remove.</param>
         /// <param name="source">The sequence of elements from which to drop elements.</param>
         /// <returns>A new sequence in which all but the first n elements are present.</returns>
-        public static IEnumerable<T> Drop<T>(int count, IEnumerable<T> source)
-            => new List<T>(source.Skip(count)).AsEnumerable();
+        public static IEnumerable<T> Drop<T>(int count, IEnumerable<T> source) => source.Skip(count);
     }
 }
