@@ -19,7 +19,7 @@ namespace Farity
 
         /// <summary>
         ///     Takes a predicate and an enumerable, and returns an enumerable of the same type containing the members of the given
-        ///     enumerable which satisfy the given predicate. Pure functions are recommended as predicates.
+        ///     enumerable which satisfy the given predicate.
         /// </summary>
         /// <typeparam name="T">The type of elements in the source.</typeparam>
         /// <param name="predicate">The predicate function to filter with.</param>
