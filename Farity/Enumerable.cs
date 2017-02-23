@@ -5,8 +5,6 @@ namespace Farity
 {
     public static partial class F
     {
-        public static IEnumerable<T> Drop<T>(int count, IEnumerable<T> source) => source.Skip(count);
-
         public static IEnumerable<T> Take<T>(int count, IEnumerable<T> source) => source.Take(count);
 
         public static IEnumerable<T> Sort<T>(IEnumerable<T> source) => source.OrderBy(x => x);
