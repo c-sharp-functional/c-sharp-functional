@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Farity
+namespace Farity.Operators
 {
     /// <summary>
     /// General purpose Expression utilities

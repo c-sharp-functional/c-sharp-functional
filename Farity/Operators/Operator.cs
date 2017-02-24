@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Farity
+namespace Farity.Operators
 {
     /// <summary>
     /// Provides standard operators (such as addition) over a single type
