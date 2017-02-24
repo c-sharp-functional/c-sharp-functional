@@ -61,8 +61,4 @@ at the test project root, which is at `/Farity.Tests` from the root of the repos
 
 ## Acknowledgements
 
-The source code for generic operators is based on the wonderful [MiscUtil library](http://www.yoda.arachsys.com/csharp/miscutil/).
-
-TODO:
-
-* inspired by ramda
+The source code for generic operators is based on the wonderful [MiscUtil library](http://www.yoda.arachsys.com/csharp/miscutil/). This library is heavily influenced by - and would probably not exist without - [ramda](http://ramdajs.com/), a practical functional library for JavaScript programmers.
