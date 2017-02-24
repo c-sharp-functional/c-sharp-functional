@@ -37,10 +37,11 @@ We're still in pre-release, but you can help by trying out Farity. Farity is ava
 
 ## Build
 
-TODO:
+The solution is built on dotnet core, so is cross-platform (at least as much as dotnet core allows). Building for any system can be done using the shell command
 
-* There is heavy reliance on DOTNET core, make that explicit,
-* explain how to build for different systems.
+`dotnet build`
+
+at the project root, which is at `/Farity` from the root of the repository.
 
 ## Documentation
 
