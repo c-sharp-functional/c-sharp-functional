@@ -1,5 +1,8 @@
 # Farity
+
 An intuitive functional library for C# programmers
+
+[![Farity latest nuget version](https://img.shields.io/nuget/v/Farity.svg)]
 
 **[Work In Progress]**
 
