@@ -33,9 +33,7 @@ Last but not least, Farity strives for performance. A reliable and quick impleme
 
 ## Installation
 
-TODO:
-
-* There aren't any packages available for installation yet.
+We're still in pre-release, but you can help by trying out Farity. Farity is available as a [nuget package](https://www.nuget.org/packages/Farity/1.0.0-alpha1) for dotnet core apps. Alternatively, one can install it using the command `Install-Package Farity -IncludePrerelease` in the Package Manager Console. The latest version is `1.0.0-alpha1`.
 
 ## Build
 
