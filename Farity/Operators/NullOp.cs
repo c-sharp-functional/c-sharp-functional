@@ -1,6 +1,4 @@
-﻿using Farity.Operators;
-
-namespace Farity
+﻿namespace Farity.Operators
 {
     interface INullOp<T>
     {
