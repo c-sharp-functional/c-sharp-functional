@@ -5,9 +5,6 @@ namespace Farity
 {
     public static partial class F
     {
-
-        public static IEnumerable<T> Sort<T>(IEnumerable<T> source) => source.OrderBy(x => x);
-
         public static IEnumerable<T> Unique<T>(IEnumerable<T> source) => source.Distinct();
 
         public static IEnumerable<T> DefaultTo<T>(T value, IEnumerable<T> source) => source.DefaultIfEmpty(value);
