@@ -6,12 +6,15 @@ namespace Farity
     public static partial class F
     {
         /// <summary>
-        /// Returns the elements of the specified sequence or the specified value in a singleton collection if the sequence is empty.
+        /// Returns the elements of the specified sequence or the specified value in a singleton collection
+        /// if the sequence is (null or) empty.
         /// </summary>
         /// <typeparam name="T">The type of elements in the sequence.</typeparam>
         /// <param name="value">The default value.</param>
         /// <param name="source">The sequence to operate on.</param>
-        /// <returns>The elements of the specified sequence, or the specified value in a singleton collection if the sequence is empty.</returns>
-        public static IEnumerable<T> DefaultTo<T>(T value, IEnumerable<T> source) => source.DefaultIfEmpty(value);
+        /// <returns>The elements of the specified sequence, or the specified value in a singleton collection
+        /// if the sequence is (null or) empty.</returns>
+        public static IEnumerable<T> DefaultTo<T>(T value, IEnumerable<T> source)
+            => (source ?? Enumerable.Empty<T>()).DefaultIfEmpty(value);
     }
 }
