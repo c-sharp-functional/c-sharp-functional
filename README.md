@@ -53,11 +53,11 @@ We wanted something that starts with an F, and something to do with functions. A
 
 ## Using the test suite
 
-TODO:
+The test suite is constructed using [xUnit.net](https://xunit.github.io/). It supports the Test Explorer in Visual Studio. For non-Windows users, the test suite can be run using the shell command
 
-* Uses xunit, should be elaborated
-* Can use VS test runner
-* or dotnet test
+`dotnet test`
+
+at the test project root, which is at `/Farity.Tests` from the root of the repository.
 
 ## Acknowledgements
 
