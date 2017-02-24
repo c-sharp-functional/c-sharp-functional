@@ -2,8 +2,8 @@
 
 An intuitive functional library for C# programmers
 
-[![Farity latest nuget version](https://img.shields.io/nuget/v/Farity.svg)]
-[![Farity MIT license](https://img.shields.io/badge/license-MIT-blue.svg)]
+[![Farity latest nuget version](https://img.shields.io/nuget/v/Farity.svg)](https://www.nuget.org/packages/Farity)
+[![Farity MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/farity/farity/blob/master/LICENSE)
 
 **[Work In Progress]**
 
